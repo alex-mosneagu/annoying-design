@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       userInput: "",
-      correctSentence: "this is a relly long text to type",
+      correctSentence: "this is a really long text to type",
       isCorrect: false,
       currentPlaceholder: "Start typing...",
       inputStyle: {
