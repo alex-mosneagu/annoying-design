@@ -137,12 +137,14 @@ export default {
   input{
     display: block;
     width: 240px;
-    height: 35px;
+    height: 40px;
     outline: none;
-    border: 1px solid silver;
+    border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 4px;
     padding-left: 15px;
     transition: all .3s ease-out;
+    box-shadow: 0px 3px 22px rgba(200, 200, 200, .5);
+    border-radius: 30px;
     &:disabled{
       opacity: .4;
     }
