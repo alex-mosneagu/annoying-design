@@ -133,23 +133,20 @@ body {
 }
 .hideCursor {
   cursor: none;
-  input {
-    cursor: none;
-  }
-  input {
-    display: block;
-    width: 240px;
-    height: 40px;
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    padding-left: 15px;
-    transition: all 0.3s ease-out;
-    box-shadow: 0px 3px 22px rgba(200, 200, 200, 0.5);
-    border-radius: 30px;
-    &:disabled {
-      opacity: 0.4;
-    }
-  }
+}
+.hideCursor input {
+  cursor: none;
+}
+input {
+  display: block;
+  width: 240px;
+  height: 40px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding-left: 15px;
+  transition: all 0.3s ease-out;
+  box-shadow: 0px 3px 22px rgba(200, 200, 200, 0.5);
+  border-radius: 30px;
 }
 </style>
