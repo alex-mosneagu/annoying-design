@@ -10,7 +10,9 @@
       @focus="handleFocus"
       @mousemove="avoidMouse"
     />
-    <p v-if="isCorrect">🎉 Congratulations! You've typed the correct sentence. 🎉</p>
+    <p v-if="isCorrect">
+      🎉 Congratulations! You've typed the correct sentence. 🎉
+    </p>
   </div>
 </template>
 
@@ -18,17 +20,23 @@
 export default {
   data() {
     return {
-      userInput: '',
-      correctSentence: 'this is a relly long text to type',
+      userInput: "",
+      correctSentence: "this is a relly long text to type",
       isCorrect: false,
-      currentPlaceholder: 'Start typing...',
+      currentPlaceholder: "Start typing...",
       inputStyle: {
-        position: 'relative',
-        transition: 'all 0.3s',
-        fontSize: '1.2em',
+        position: "relative",
+        transition: "all 0.3s",
+        fontSize: "1.2em",
       },
       isInputHidden: false,
-      distractions: ['Try harder!', 'You almost got it!', 'Keep going!', 'Focus...'],
+      distractions: [
+        "Your hard work will pay off, don't give up now! 🤓",
+        "You're doing great, keep up the fantastic work!",
+        "Keep going, you’re almost there 😉",
+        "Keep typing, every word brings you closer to your masterpiece.",
+        "Keep your fingers moving and your mind open. You're doing amazing! 🤩",
+      ],
     };
   },
   created() {
@@ -50,12 +58,14 @@ export default {
       this.checkCorrectness();
     },
     handleBlur() {
+      this.checkCorrectness();
       setTimeout(() => {
         this.$refs.input.focus();
       }, 500);
     },
     handleFocus() {
-      this.currentPlaceholder = 'Keep going...';
+      this.currentPlaceholder = "Keep going...";
+      this.checkCorrectness();
     },
     randomlyMoveInput() {
       this.inputStyle.left = `${Math.random() * 30}dvw`;
@@ -63,12 +73,13 @@ export default {
     },
     changePlaceholder() {
       const placeholders = [
-        'Almost there...',
-        'Keep trying...',
-        'You can do it!',
-        'Not quite right...',
+        "Almost there...",
+        "Keep trying...",
+        "You can do it!",
+        "Not quite right...",
       ];
-      this.currentPlaceholder = placeholders[Math.floor(Math.random() * placeholders.length)];
+      this.currentPlaceholder =
+        placeholders[Math.floor(Math.random() * placeholders.length)];
     },
     swapCharacters() {
       if (this.userInput.length > 1 && Math.random() < 0.2) {
@@ -82,13 +93,17 @@ export default {
     },
     randomlyInsertCharacter() {
       if (Math.random() < 0.1) {
-        const randomChar = String.fromCharCode(97 + Math.floor(Math.random() * 26));
+        const randomChar = String.fromCharCode(
+          97 + Math.floor(Math.random() * 26)
+        );
         this.userInput += randomChar;
       }
     },
     invertTyping() {
       if (Math.random() < 0.05) {
-        const invertedChar = String.fromCharCode(122 - (this.userInput.charCodeAt(this.userInput.length - 1) - 97));
+        const invertedChar = String.fromCharCode(
+          122 - (this.userInput.charCodeAt(this.userInput.length - 1) - 97)
+        );
         this.userInput = this.userInput.slice(0, -1) + invertedChar;
       }
     },
@@ -98,7 +113,11 @@ export default {
     },
     showDistractions() {
       if (Math.random() < 0.1) {
-        alert(this.distractions[Math.floor(Math.random() * this.distractions.length)]);
+        alert(
+          this.distractions[
+            Math.floor(Math.random() * this.distractions.length)
+          ]
+        );
       }
     },
     avoidMouse() {
@@ -117,32 +136,34 @@ export default {
 </script>
 
 <style lang="scss">
-  body{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .hideCursor{
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.hideCursor {
+  cursor: none;
+  input {
     cursor: none;
-    input{
-      cursor: none;
-    }
   }
-  input{
-    display: block;
-    width: 240px;
-    height: 35px;
-    outline: none;
-    border: 1px solid silver;
-    border-radius: 4px;
-    padding-left: 15px;
-    transition: all .3s ease-out;
-    &:disabled{
-      opacity: .4;
-    }
+}
+input {
+  display: block;
+  width: 240px;
+  height: 40px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding-left: 15px;
+  transition: all 0.3s ease-out;
+  box-shadow: 0px 3px 22px rgba(200, 200, 200, 0.5);
+  border-radius: 30px;
+  &:disabled {
+    opacity: 0.4;
   }
+}
 </style>
