@@ -10,7 +10,9 @@
       @focus="handleFocus"
       @mousemove="avoidMouse"
     />
-    <p v-if="isCorrect">🎉 Congratulations! You've typed the correct sentence. 🎉</p>
+    <p v-if="isCorrect">
+      🎉 Congratulations! You've typed the correct sentence. 🎉
+    </p>
   </div>
 </template>
 
@@ -18,14 +20,14 @@
 export default {
   data() {
     return {
-      userInput: '',
-      correctSentence: 'this is a relly long text to type',
+      userInput: "",
+      correctSentence: "this is a relly long text to type",
       isCorrect: false,
-      currentPlaceholder: 'Start typing...',
+      currentPlaceholder: "Start typing...",
       inputStyle: {
-        position: 'relative',
-        transition: 'all 0.3s',
-        fontSize: '1.2em',
+        position: "relative",
+        transition: "all 0.3s",
+        fontSize: "1.2em",
       },
       isInputHidden: false,
       distractions: ['Your hard work will pay off, don\'t give up now! 🤓', 'You\'re doing great, keep up the fantastic work!', 'Keep going, you’re almost there 😉', 'Keep typing, every word brings you closer to your masterpiece.', 'Keep your fingers moving and your mind open. You\'re doing amazing! 🤩', 'Keep typing, because even your keyboard enjoys a good laugh sometimes.', 'Keep typing, even if it looks like your keyboard is having a bad day', 'Every typo is just a step towards perfection. Keep going!', 'Typos are just your keyboard\'s way of saying, Let\'s try that again!'],
@@ -56,7 +58,7 @@ export default {
       }, 500);
     },
     handleFocus() {
-      this.currentPlaceholder = 'Keep going...';
+      this.currentPlaceholder = "Keep going...";
       this.checkCorrectness();
     },
     randomlyMoveInput() {
@@ -65,12 +67,13 @@ export default {
     },
     changePlaceholder() {
       const placeholders = [
-        'Almost there...',
-        'Keep trying...',
-        'You can do it!',
-        'Not quite right...',
+        "Almost there...",
+        "Keep trying...",
+        "You can do it!",
+        "Not quite right...",
       ];
-      this.currentPlaceholder = placeholders[Math.floor(Math.random() * placeholders.length)];
+      this.currentPlaceholder =
+        placeholders[Math.floor(Math.random() * placeholders.length)];
     },
     swapCharacters() {
       if (this.userInput.length > 1 && Math.random() < 0.1) {
@@ -119,34 +122,34 @@ export default {
 </script>
 
 <style lang="scss">
-  body{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .hideCursor{
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.hideCursor {
+  cursor: none;
+  input {
     cursor: none;
-    input{
-      cursor: none;
-    }
   }
-  input{
+  input {
     display: block;
     width: 240px;
     height: 40px;
     outline: none;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     padding-left: 15px;
-    transition: all .3s ease-out;
-    box-shadow: 0px 3px 22px rgba(200, 200, 200, .5);
+    transition: all 0.3s ease-out;
+    box-shadow: 0px 3px 22px rgba(200, 200, 200, 0.5);
     border-radius: 30px;
-    &:disabled{
-      opacity: .4;
+    &:disabled {
+      opacity: 0.4;
     }
   }
+}
 </style>
