@@ -55,7 +55,7 @@ export default {
       this.checkCorrectness();
       setTimeout(() => {
         this.$refs.input.focus();
-      }, 500);
+      }, 3500);
     },
     handleFocus() {
       this.currentPlaceholder = "Keep going...";
@@ -139,8 +139,8 @@ body {
 }
 input {
   display: block;
-  width: 240px;
-  height: 40px;
+  width: 340px;
+  height: 45px;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
