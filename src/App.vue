@@ -53,9 +53,6 @@ export default {
     },
     handleBlur() {
       this.checkCorrectness();
-      setTimeout(() => {
-        this.$refs.input.focus();
-      }, 3500);
     },
     handleFocus() {
       this.currentPlaceholder = "Keep going...";
@@ -102,7 +99,7 @@ export default {
       this.inputStyle.fontSize = `${fontSize}rem`;
     },
     showDistractions() {
-      if (Math.random() < 0.3) {
+      if (Math.random() < 0.15) {
         alert(this.distractions[Math.floor(Math.random() * this.distractions.length)]);
       }
     },
