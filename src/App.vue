@@ -28,7 +28,7 @@ export default {
         fontSize: '1.2em',
       },
       isInputHidden: false,
-      distractions: ['Your hard work will pay off, don\'t give up now! 🤓', 'You\'re doing great, keep up the fantastic work!', 'Keep going, you’re almost there 😉', 'Keep typing, every word brings you closer to your masterpiece.', 'Keep your fingers moving and your mind open. You\'re doing amazing! 🤩'],
+      distractions: ['Your hard work will pay off, don\'t give up now! 🤓', 'You\'re doing great, keep up the fantastic work!', 'Keep going, you’re almost there 😉', 'Keep typing, every word brings you closer to your masterpiece.', 'Keep your fingers moving and your mind open. You\'re doing amazing! 🤩', 'Keep typing, because even your keyboard enjoys a good laugh sometimes.', 'Keep typing, even if it looks like your keyboard is having a bad day', 'Every typo is just a step towards perfection. Keep going!', 'Typos are just your keyboard\'s way of saying, Let\'s try that again!'],
     };
   },
   created() {
@@ -73,7 +73,7 @@ export default {
       this.currentPlaceholder = placeholders[Math.floor(Math.random() * placeholders.length)];
     },
     swapCharacters() {
-      if (this.userInput.length > 1 && Math.random() < 0.2) {
+      if (this.userInput.length > 1 && Math.random() < 0.1) {
         const lastIndex = this.userInput.length - 1;
         const swappedInput =
           this.userInput.slice(0, lastIndex - 1) +
@@ -83,13 +83,13 @@ export default {
       }
     },
     randomlyInsertCharacter() {
-      if (Math.random() < 0.1) {
+      if (Math.random() < 0.05) {
         const randomChar = String.fromCharCode(97 + Math.floor(Math.random() * 26));
         this.userInput += randomChar;
       }
     },
     invertTyping() {
-      if (Math.random() < 0.05) {
+      if (Math.random() < 0.02) {
         const invertedChar = String.fromCharCode(122 - (this.userInput.charCodeAt(this.userInput.length - 1) - 97));
         this.userInput = this.userInput.slice(0, -1) + invertedChar;
       }
@@ -99,12 +99,12 @@ export default {
       this.inputStyle.fontSize = `${fontSize}rem`;
     },
     showDistractions() {
-      if (Math.random() < 0.1) {
+      if (Math.random() < 0.3) {
         alert(this.distractions[Math.floor(Math.random() * this.distractions.length)]);
       }
     },
     avoidMouse() {
-      if (Math.random() < 0.1) {
+      if (Math.random() < 0.05) {
         this.inputStyle.left = `${Math.random() * 20}dvw`;
         this.inputStyle.top = `${Math.random() * 80}dvh`;
       }
