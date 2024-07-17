@@ -28,7 +28,7 @@ export default {
         fontSize: '1.2em',
       },
       isInputHidden: false,
-      distractions: ['Try harder!', 'You almost got it!', 'Keep going!', 'Focus...'],
+      distractions: ['Your hard work will pay off, don\'t give up now! 🤓', 'You\'re doing great, keep up the fantastic work!', 'Keep going, you’re almost there 😉', 'Keep typing, every word brings you closer to your masterpiece.', 'Keep your fingers moving and your mind open. You\'re doing amazing! 🤩'],
     };
   },
   created() {
@@ -50,12 +50,14 @@ export default {
       this.checkCorrectness();
     },
     handleBlur() {
+      this.checkCorrectness();
       setTimeout(() => {
         this.$refs.input.focus();
       }, 500);
     },
     handleFocus() {
       this.currentPlaceholder = 'Keep going...';
+      this.checkCorrectness();
     },
     randomlyMoveInput() {
       this.inputStyle.left = `${Math.random() * 30}dvw`;
